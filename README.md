@@ -1,0 +1,1 @@
+The remainder of Fullstack Open 2020 exercises can be found in [the primary repository](https://github.com/Jakub-L/full-stack-open-2020).

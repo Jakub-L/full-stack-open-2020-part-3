@@ -1,0 +1,31 @@
+{
+  "name": "full-stack-open-2020-part-3",
+  "version": "0.1.0",
+  "description": "Solution to the exercises in part 3 of Fullstack Open 2020",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakub-L/full-stack-open-2020-part-3.git"
+  },
+  "keywords": [
+    "fullstack",
+    "open"
+  ],
+  "author": "Jakub L.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jakub-L/full-stack-open-2020-part-3/issues"
+  },
+  "homepage": "https://github.com/Jakub-L/full-stack-open-2020-part-3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
