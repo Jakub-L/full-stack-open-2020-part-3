@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 let persons = [
   {
@@ -24,9 +25,17 @@ let persons = [
   },
 ];
 
-app.get("/api/persons", (req, res) => {
-  res.json(persons);
-});
+app
+  .get("/api/persons", (req, res) => {
+    res.json(persons);
+  })
+  .post("/api/persons", (req, res) => {
+    const { name, number } = req.body;
+    const id = Math.floor(Math.random() * 1000);
+    const newPerson = { name, number, id };
+    persons = [...persons, newPerson];
+    res.status(201).json(newPerson);
+  });
 
 app
   .get("/api/persons/:id", (req, res) => {
