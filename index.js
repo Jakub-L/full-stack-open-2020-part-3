@@ -28,6 +28,12 @@ app.get("/api/persons", (req, res) => {
   res.json(persons);
 });
 
+app.get("/api/persons/:id", (req, res) => {
+  const { id } = req.params;
+  const person = persons.find((person) => person.id == id);
+  res.json(person);
+});
+
 app.get("/info", (req, res) => {
   res.send(
     `<p>Phonebook has information for ${
