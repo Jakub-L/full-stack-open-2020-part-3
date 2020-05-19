@@ -28,11 +28,17 @@ app.get("/api/persons", (req, res) => {
   res.json(persons);
 });
 
-app.get("/api/persons/:id", (req, res) => {
-  const { id } = req.params;
-  const person = persons.find((person) => person.id == id);
-  res.json(person);
-});
+app
+  .get("/api/persons/:id", (req, res) => {
+    const { id } = req.params;
+    const person = persons.find((person) => person.id == id);
+    res.json(person);
+  })
+  .delete("/api/persons/:id", (req, res) => {
+    const { id } = req.params;
+    persons = persons.filter((person) => person.id != id);
+    res.status(204).end();
+  });
 
 app.get("/info", (req, res) => {
   res.send(
