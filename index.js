@@ -31,10 +31,18 @@ app
   })
   .post("/api/persons", (req, res) => {
     const { name, number } = req.body;
-    const id = Math.floor(Math.random() * 1000);
-    const newPerson = { name, number, id };
-    persons = [...persons, newPerson];
-    res.status(201).json(newPerson);
+    if (!name || !number) {
+      res
+        .status(400)
+        .json({ error: "Name and number can't be missing or blank" });
+    } else if (persons.some((person) => person.name === name)) {
+      res.status(400).json({ error: "Person with this name already exists" });
+    } else {
+      const id = Math.floor(Math.random() * 1000);
+      const newPerson = { name, number, id };
+      persons = [...persons, newPerson];
+      res.status(201).json(newPerson);
+    }
   });
 
 app
